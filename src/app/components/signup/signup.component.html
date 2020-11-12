@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-sm-10 offset-sm-1 mt-3">
+        <form [formGroup]="signupForm" (ngSubmit)="submitSignupForm()">
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputEmail4">Email</label>
+                <input type="email" formControlName="email" class="form-control" id="inputEmail4" placeholder="Email">
+                <div class="invalid invalid-feedback" *ngIf="(email.touched || isSubmited) && email.invalid">
+                    <div *ngIf="email.errors.required">
+                        *Email is Required
+                    </div>
+                    <div *ngIf="email.errors.pattern">
+                        *Email is Not Valid.
+                    </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="inputfullName">Fullname</label>
+                <input type="text" formControlName="fullName" class="form-control" id="inputfullName" placeholder="FullName">
+                <div class="invalid invalid-feedback" *ngIf="(fullname.touched || isSubmited) && fullname.invalid">
+                    <div *ngIf="fullname.errors.required">
+                        *Fullname is Required
+                    </div>
+                    <div *ngIf="fullname.errors.minlength">
+                        *Minimum 6 characters Required.
+                    </div>
+                    <div *ngIf="fullname.errors.maxlength">
+                        *Maximum 15 characters Allowed.
+                    </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="inputUsername">Username</label>
+                <input type="text" formControlName="username" class="form-control" id="inputUsername" placeholder="Username">
+                <div class="invalid invalid-feedback" *ngIf="(username.touched || isSubmited) && username.invalid">
+                    <div *ngIf="username.errors.required">
+                        *Username is Required
+                    </div>
+                    <div *ngIf="username.errors.minlength">
+                        *Minimum 6 characters Required.
+                    </div>
+                    <div *ngIf="username.errors.maxlength">
+                        *Maximum 15 characters Allowed.
+                    </div>
+                </div>
+            </div>
+              <div class="form-group col-md-6">
+                <label for="inputPassword">Password</label>
+                <input type="password" formControlName="password" class="form-control" id="inputPassword" placeholder="Password">
+                <div class="invalid invalid-feedback" *ngIf="(password.touched || isSubmited) && password.invalid">
+                    <div *ngIf="password.errors.required">
+                        *Password is Required
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                        *Minimum 6 characters Required.
+                    </div>
+                    <div *ngIf="password.errors.maxlength">
+                        *Maximum 15 characters Allowed.
+                    </div>
+                </div>
+            </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+        </form>
+
+    </div>
+</div>
